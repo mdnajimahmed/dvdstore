@@ -1,14 +1,15 @@
 import express from "express";
 import awsServerlessExpress from "aws-serverless-express";
 import routes from "./controller";
-import { applyRoutes } from "./utils";
+import { applyMiddleware, applyRoutes } from "./utils";
+import middleware from "./middleware";
 
-console.log("I am here");
 let server;
 
 const startServer = async () => {
   if (!server) {
     server = express();
+    applyMiddleware(middleware, server);
     applyRoutes(routes, server);
   }
   return server;
