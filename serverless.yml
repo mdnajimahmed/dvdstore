@@ -1,0 +1,39 @@
+service: dvdstore
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+  - serverless-prune-plugin
+  - serverless-plugin-resource-tagging
+
+custom:
+  prune:
+    automatic: true
+    includeLayers: true
+    number: 10
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage}
+  region: ap-southeast-1
+  stackTags:
+    ProjectName: DvdStore
+
+functions:
+  district-list:
+    handler: src/main.handler
+    memorySize: 128
+    description: Backend service for DVD Rental Demo App
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
