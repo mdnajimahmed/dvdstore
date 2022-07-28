@@ -29,6 +29,7 @@ Sample project with PETRONAS Serverless best practices and such!
 - Implement Continuous Delivery(Automatic Release) in github.
 - Implement Continuous Deployment in AWS with IAC and SSM integration.
 - Implement Serverless Observability
+- Automatic release note/ Change log publish + Commitizen integration
 
 ### Danger level:
 
