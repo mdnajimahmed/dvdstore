@@ -6,7 +6,7 @@ Sample project with PETRONAS Serverless best practices and such!
 
 ### Development:
 
-- Implement the following database using typeORM
+- Implement the following ERD using typeORM
   ![DVDStore ERD](./printable-postgresql-sample-database-diagram1024_1.jpg)
 - Write CRUD RestController On Each Resource
 - Write Service Layer
