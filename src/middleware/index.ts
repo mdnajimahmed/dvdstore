@@ -1,3 +1,6 @@
-import { responseHeaderEnhancer } from "./common.middleware";
+import {
+  httpContextExtractor,
+  responseHeaderEnhancer,
+} from "./common.middleware";
 
-export default [responseHeaderEnhancer];
+export default [httpContextExtractor, responseHeaderEnhancer];

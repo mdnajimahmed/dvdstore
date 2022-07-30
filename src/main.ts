@@ -4,11 +4,14 @@ import routes from "./controller";
 import { applyMiddleware, applyRoutes } from "./utils";
 import middleware from "./middleware";
 
+var httpContext = require("express-http-context");
+
 let server;
 
 const startServer = async () => {
   if (!server) {
     server = express();
+    server.use(httpContext.middleware);
     applyMiddleware(middleware, server);
     applyRoutes(routes, server);
   }
@@ -17,10 +20,7 @@ const startServer = async () => {
 
 export const handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
-  console.debug("Starting server...");
   const server = await startServer();
-  console.debug("Successfully started server");
   const app = awsServerlessExpress.createServer(server);
   return awsServerlessExpress.proxy(app, event, context, "PROMISE").promise;
 };
-// asd;
