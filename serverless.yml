@@ -24,7 +24,7 @@ provider:
     ProjectName: DvdStore
 
 functions:
-  district-list:
+  api:
     handler: src/main.handler
     memorySize: 128
     description: Backend service for DVD Rental Demo App
