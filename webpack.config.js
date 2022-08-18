@@ -7,9 +7,7 @@ module.exports = {
   context: __dirname,
   mode: "development",
   entry: slsw.lib.entries,
-  devtool: slsw.lib.webpack.isLocal
-    ? "cheap-module-eval-source-map"
-    : "source-map",
+  devtool: 'source-map',
   resolve: {
     extensions: [".mjs", ".json", ".ts"],
     symlinks: false,
