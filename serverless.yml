@@ -30,7 +30,7 @@ provider:
 
 functions:
   api:
-    handler: src/main.handler
+    handler: src/main/main.handler
     memorySize: 128
     description: Backend service for DVD Rental Demo App
     events:
