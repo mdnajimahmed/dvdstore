@@ -1,5 +1,5 @@
-import express from "express";
-import awsServerlessExpress from "aws-serverless-express";
+import * as express from "express";
+import * as awsServerlessExpress from "aws-serverless-express";
 import routes from "./controller";
 import { applyMiddleware, applyRoutes } from "./utils";
 import middleware from "./middleware";

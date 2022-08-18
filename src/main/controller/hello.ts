@@ -8,6 +8,7 @@ import logger from "../utils/logger";
  */
 async function greetHello(req: Request, resp: Response, next: NextFunction) {
   try {
+    logger.error(`Request body = ${JSON.stringify(req.query)}`)
     logger.error("This is error log");
     logger.warn("This is warn log");
     logger.info("This is info log");
@@ -15,7 +16,7 @@ async function greetHello(req: Request, resp: Response, next: NextFunction) {
     logger.verbose("This is verbose log");
     logger.debug("This is debug log");
     logger.silly("This is silly log");
-    resp.send("Hello");
+    resp.send("Hello " + req?.query?.name);
   } catch (err) {
     next(err);
   }
