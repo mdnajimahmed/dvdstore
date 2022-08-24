@@ -59,6 +59,7 @@
     "express": "^4.18.1",
     "express-http-context": "^1.2.4",
     "mysql": "^2.18.1",
+    "pg": "^8.8.0",
     "typeorm": "^0.3.7",
     "winston": "^3.8.1"
   }

@@ -1,2 +1,3 @@
+import { Message } from "./message";
 
-export default []
+export default [Message]

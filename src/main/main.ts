@@ -3,10 +3,13 @@ import * as awsServerlessExpress from "aws-serverless-express";
 import routes from "./controller";
 import { applyMiddleware, applyRoutes } from "./utils";
 import middleware from "./middleware";
+import getDbConnection from "./utils/db-connection";
 
 var httpContext = require("express-http-context");
 
 let server;
+let dataSource;
+
 
 const startServer = async () => {
   if (!server) {
@@ -14,6 +17,7 @@ const startServer = async () => {
     server.use(httpContext.middleware);
     applyMiddleware(middleware, server);
     applyRoutes(routes, server);
+    dataSource = await getDbConnection();
   }
   return server;
 };
