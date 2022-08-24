@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import { startSlsOffline, stopSlsOffline } from "../../helper";
+import { startSlsOffline, stopSlsOffline } from "../helper";
 
 describe("Integration Test", () => {
   beforeAll(async () => {
