@@ -13,7 +13,7 @@ export const httpContextExtractor = (router: Router) => {
     );
     const awsRequestId = apiGatewayContext.awsRequestId;
     httpContext.set("api", req.url);
-    httpContext.set("user", "najim.ju@gmail.com");
+    httpContext.set("user", "najim.ju@gmail.com"); // Todo: hardcoded for test, later will come from http session.
     httpContext.set("lambdaRequestId", awsRequestId);
     next();
   });
