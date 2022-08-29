@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="sls" type="NodeJSConfigurationType" application-parameters="offline start --stage dev" path-to-js-file="/usr/local/lib/node_modules/serverless/bin/serverless.js" working-dir="$PROJECT_DIR$">
+  <configuration default="false" name="sls" type="NodeJSConfigurationType" application-parameters="offline start --stage local" path-to-js-file="/usr/local/lib/node_modules/serverless/bin/serverless.js" working-dir="$PROJECT_DIR$">
     <method v="2" />
   </configuration>
 </component>

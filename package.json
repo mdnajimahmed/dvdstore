@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .ts --ext .js",
     "prepare": "husky install",
     "compile": "tsc",
-    "start": "sls offline start --stage dev"
+    "start": "sls offline start --stage local"
   },
   "husky": {
     "hooks": {
@@ -60,6 +60,7 @@
     "express-http-context": "^1.2.4",
     "mysql": "^2.18.1",
     "pg": "^8.8.0",
+    "serverless-dotenv-plugin": "^4.0.2",
     "typeorm": "^0.3.7",
     "winston": "^3.8.1"
   }

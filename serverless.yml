@@ -5,6 +5,7 @@ plugins:
   - serverless-webpack
   - serverless-prune-plugin
   - serverless-plugin-resource-tagging
+  - serverless-dotenv-plugin # automatically import all variables from .env.local into functions
 
 custom:
   prune:
@@ -14,6 +15,8 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
+  dotenv:
+    path: ${self:service}.env.local
 
 provider:
   name: aws
@@ -27,6 +30,18 @@ provider:
     STAGE: ${self:provider.stage}
     REGION: ${self:provider.region}
     LOG_LEVEL: debug
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - ssm:DescribeParameters
+        - ssm:GetParameters
+        - ssm:GetParametersByPath
+      Resource: "arn:aws:ssm:${self:provider.region}:${aws:accountId}:parameter/${self:service}/${self:provider.stage}/*"
+    - Effect: Allow
+      Action:
+        - kms:Decrypt
+      Resource:
+        - "arn:aws:kms:${self:provider.region}:${aws:accountId}:key/9fa8490a-542f-4e96-b051-2b250ececa0d"
 
 functions:
   api:

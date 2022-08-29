@@ -15,7 +15,7 @@ const getDbConnection = async () => {
         port: 5432,
         username: dbConnectionInfo["username"],
         password: dbConnectionInfo["password"],
-        database: "postgres",
+        database: dbConnectionInfo["database"],
         entities: [
           ...models
         ],
